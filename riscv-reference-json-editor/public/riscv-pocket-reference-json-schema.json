@@ -1,0 +1,451 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "RISC-V implementation for the riscv-pocket-reference documentation",
+  "headerTemplate": "{{self.author}} - {{self.name}} RISC-V implementation",
+  "description": "Describes a single design/core implementation (including its various configurations and variances)",
+  "type": "object",
+  "definitions": {
+    "modules": {
+      "title": "Modules (and extensions)",
+      "type": "string",
+      "pattern": "^RV(32|64|128).+(,RV(32|64|128).+){0,}",
+      "description": "Implementation's modules (and extensions). Use the shorterst aliases (RV64GC instead of RV64IMAFDC). Use capital characters only, can use comma separated list, if it's multiple modules. Example: RV32IAM,RV32IAMF. See: https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf"
+    },
+    "instructionObject": {
+      "title": "ISA instruction",
+      "headerTemplate": "Instruction - {{self.name}}",
+      "type": "object",
+      "required":[
+        "name",
+        "clocks"
+      ],
+      "options": {
+        "disable_properties": true
+      },
+     "properties": {
+        "name":{
+          "title": "Name",
+          "type": "string",
+          "description": "ISA instruction name. Example: fmv.x.w",
+          "maxLength": 128
+        }, 
+        "clocks":{
+          "title": "Clocks",
+          "type": "string",
+          "description": "How many clock ticks the instruction requires. Numbers and ranges are valid. Enter value -1 for instructions which should be implemented in this module, but are not.",
+          "maxLength": 128
+        },
+        "notes":{
+          "title": "Notes",
+          "type": "string",
+          "description": "What differences are in this implementation of the instruction compared to generic knowledge. Can use Myst markup syntax. Preferebly maximum two paragraphs of text.",
+          "maxLength": 5000
+        }
+      }
+    },
+    "specificationObject": {
+      "type": "object",
+      "title": "Specification",
+      "headerTemplate": "Specification {{i1}}",
+      "required":[
+        "isAsic"
+      ],
+      "options": {
+        "disable_properties": true
+      },
+      "properties": {
+        "modules": {
+          "description": "If describing multiple variants of a designs/cores with different feature sets, then this parent entry can contain comma separated list of all possible modules/extensions, or leave this empty and describe in the child entries. Example: RV32IM,RV32IMC",
+          "$ref": "#/definitions/modules"
+        },
+        "isAsic": {
+          "title": "Has a ASIC form?",
+          "description": "If true, this design/core/variant is implemented in a ASIC form. If false this design/core/variant is implemented in a FPGA. Technically speacking many ASIC only implementations might have internally in the design house some FPGA representation, however this is considering it from a regular user's perspective",
+          "type":"boolean"
+        },
+        "debug": {
+          "title": "Debug module",
+          "type": "string",
+          "description": "Describe what debug module it has and what spec it adheres to. If no debug module present, leave it empty"
+        },
+        "size": {
+          "title": "ASIC/FPGA size",
+          "description": "[Optional] ASIC's size in mm2, FPGA's size is in LUTs or their equivalent. Do not use unit prefixes, use 3000 instead of 3k. Numbers are preferable, but comma separated list, or ranges are ok too",
+          "type": "string",
+          "maxLength": 512
+        },
+        "clock": {
+          "title": "ASIC/FPGA clock",
+          "description": "[Optional] The typical clocks achieved. Use use the MHz units, without the 'MHz' prefix (1200 instead of 1.2GHz). Numbers are preferable, but comma separated list, or ranges are ok too",
+          "type": "string",
+          "maxLength": 512
+        },
+        "notes":{
+          "title": "Notes",
+          "description": "[Optional] For ASIC specify the technology at which the size was achieved and any details. For FPGA implementations, can specify the FPGA vendor devices, tools, fuller utilisation report (not just LUT), anything worthy metioning. Can use Myst makrup syntax",
+          "type": "string",
+          "maxLength": 4000
+        },
+        "benchmarks": {
+          "title": "Benchmarks",
+          "description": "If describing multiple variants of a design/cores with different performance scores, then this parent entry can contain the range of scores across the all the variants, or leave this empty and describe in the child entries",
+          "propertyOrder": 1200,
+          "headerTemplate": "{{self.length}} benchmarks",
+          "type": "array",
+          "minItems": 0,
+          "uniqueItems": true,
+          "options": {
+            "collapsed": true
+          },
+          "items": {
+            "$ref": "#/definitions/benchmark"
+          }
+        }    
+      }
+    },
+    "emailObject": {
+      "type": "object",
+      "title": "Email",
+      "headerTemplate": "Email {{i1}}",
+      "required": [
+        "email"
+      ],
+      "properties": {
+        "email": {
+          "title": "Email",
+          "description": "Email of the author (or organization)",
+          "type": "string",
+          "format": "email",
+          "minLength": 6,
+          "maxLength": 128
+        }
+      },
+      "options": {
+        "disable_properties": true
+      }
+    },
+    "urlObject": {
+      "type": "object",
+      "title": "URL",
+      "headerTemplate": "URL {{i1}} - {{self.url}}",
+      "required": [
+        "url"
+      ],
+      "properties": {
+        "url": {
+          "title":  "URL address",
+          "description": "Online URL reference (include http/https)",
+          "type": "string",
+          "format": "uri",
+          "maxLength": 512
+        }
+      },
+      "options": {
+        "disable_properties": true
+      }
+    },
+    "yaynah":{
+      "title": "Yay/Nay",
+      "headerTemplate": "Yay/Nay {{i1}}",
+      "description": "A positive or negative highlights of this implementations",
+      "type": "object",
+      "properties": {
+        "text": {
+          "title": "Text",
+          "description": "Short description (preferably one sentence) of the Yay/Nay. Can use Myst markup syntax.",
+          "type": "string",
+          "maxLength": 512
+        },
+        "isYay": {
+          "title": "Is this entry Yay?",
+          "type": "boolean",
+          "default": true,
+          "description": "If false, then this entry is Nay. By default (true) it's Yay."
+        }
+      },
+      "required": [
+        "text",
+        "isYay"
+      ],
+      "options": {
+        "disable_properties": true
+      }
+    },
+    "benchmark": {
+      "title": "Benchmark",
+      "headerTemplate": "Benchmark {{i1}} - {{self.name}}",
+      "type": "object",
+      "required": [
+        "name",
+        "score"
+      ],
+      "options": {
+        "disable_properties": true
+      },
+      "properties": {
+        "name":{
+          "title": "Name",
+          "type": "string",
+          "description": "Benchmark's name (and if necesary version as well). Example: Coremark",
+          "maxLength": 256
+        }, 
+        "url": {
+          "title":  "URL",
+          "description": "[Optional] Online URL reference to the benchmark's download/reference/source page or to the test report itself (include http/https)",
+          "type": "string",
+          "format": "uri",
+          "maxLength": 512
+        },
+        "score": {
+          "title": "Score",
+          "type": "string",
+          "description": "Score achieved in the benchmark. Preferably use numbers (however strings, ranges are allowed too)",
+          "maxLength": 256
+        },
+        "notes": {
+          "title": "Notes",
+          "type": "string",
+          "description": "[Optional] Additional remarks worthy mentioning regardles to the score/benchmark. Can use Myst markup syntax (hoever limit it to simpler formatting)",
+          "maxLength": 2048
+        }
+      }
+    },
+    "variantObject": {
+      "type": "object",
+      "title": "Variant",
+      "headerTemplate": "Variant {{i1}} - {{self.name}}",
+      "required":[
+        "name"
+      ],
+      "options": {
+        "disable_properties": true
+      },
+      "properties": {
+        "name" : {
+          "title": "Variant name",
+          "propertyOrder": 400,
+          "description": "Name of this variant of the design. If the core/design has only one variant, then set it to 'default' value. Example: RV32I-small",
+          "default": "default",
+          "type": "string"
+        },
+        "nameId": {
+          "title": "NameID",
+          "propertyOrder": 500,
+          "description": "[Optional] Filename safe (no unicode, no special characters, no spaces) version of the name (only needed if the name is not safe to be used as filename)",
+          "type": "string",
+          "maxLength": 127
+        },    
+        "description": {
+          "title": "Description",
+          "propertyOrder": 600,
+          "type" :"string",
+          "description": "[Optional] Paragraph or two describing what makes this variant different from the other variants (or from its parent). Can use Mysth markup syntax.",
+          "maxLength": 5000
+        },    
+        "urls": {
+          "title": "URLs",
+          "propertyOrder": 900,
+          "headerTemplate": "{{self.length}} URLs",
+          "description": "[Optional] Reference to this variant of the implementation (if not covered by parent already)",
+          "type": "array",
+          "minItems": 0,
+          "uniqueItems": true,
+          "options": {
+            "collapsed": true,
+            "remove_empty_properties": true
+          },
+          "items": {
+            "$ref": "#/definitions/urlObject"
+          }
+        },
+        "yaynahs": {
+          "title": "Yays/Nahs",
+          "propertyOrder": 1000,
+          "headerTemplate": "{{self.length}} Yays/Nahs",
+          "description": "[Optional] Highlights short positives and negatives of this variant (it might be already covered by parent)",
+          "type": "array",
+          "minItems": 0,
+          "uniqueItems": true,
+          "options": {
+            "collapsed": true,
+            "remove_empty_properties": true
+          },
+          "items": {
+            "$ref": "#/definitions/yaynah"
+          }
+        },
+        "specifications": {
+          "title": "Specifications",
+          "description": "These specifications override parents values, while broad information is the in the parent, ",
+          "propertyOrder": 1300,
+          "headerTemplate": "{{self.length}} specifications",
+          "type": "array",
+          "minItems": 0,
+          "uniqueItems": true,
+          "options": {
+            "collapsed": true
+          },
+          "items": {
+            "$ref": "#/definitions/specificationObject"
+          }
+        }, 
+        "instructions": {
+          "title": "Instructions",
+          "description": "Details how many clocks take each instruction and what separate considerations have to be made using this",
+          "propertyOrder": 1500,
+          "headerTemplate": "{{self.length}} instructions",
+          "type": "array",
+          "minItems": 0,
+          "uniqueItems": true,
+          "options": {
+            "collapsed": true
+          },
+          "items": {
+            "$ref": "#/definitions/instructionObject"
+          }
+        }
+    
+      }
+    }
+  },
+  "properties": {
+    "author": {
+      "title": "Author",
+      "propertyOrder": 100,
+      "description": "Name(s) of the author(s) or organization(s). Example: SiFive",
+      "type": "string",
+      "maxLength": 127
+    },
+    "authorId": {
+      "title": "AuthorID",
+      "propertyOrder": 200,
+      "description": "[Optional] Variant of the author which is safe to use as a filename (no unicode, no special characters, no spaces). This can be ommited if the author field already adheres to these.",
+      "type": "string",
+      "maxLength": 127
+    },
+    "name" : {
+      "title": "Implementation name",
+      "propertyOrder": 400,
+      "description": "Name of the RISC-V implementation (or core). Example: rocket-chip-1",
+      "type": "string"
+    },
+    "nameId": {
+      "title": "NameID",
+      "propertyOrder": 500,
+      "description": "[Optional] Variant of the implementation name which is safe to use as a filename (no unicode, no special characters, no spaces). This can be ommited if the name field already adheres to these.",
+      "type": "string",
+      "maxLength": 127
+    },
+    "description": {
+      "title": "Description",
+      "propertyOrder": 600,
+      "type" :"string",
+      "description": "[Optional] Paragraph or two describing the design/core. Can use Mysth markup syntax.",
+      "maxLength": 5000
+    },
+    "language": {
+      "title": "Language",
+      "propertyOrder": 700,
+      "description": "[Optional] The language(s) used to implement the core (can contain multiple languages and how they are pipelined together). Example: Chisel(Scala) -> Verilog",
+      "type": "string",
+      "maxLength": 255
+    },
+    "license": {
+      "title": "License",
+      "propertyOrder": 800,
+      "description": "[Optional] What license(s) are covering this implementation.",
+      "type": "string",
+      "maxLength": 255
+    },
+    "email": {
+      "title": "Email",
+      "propertyOrder": 830,
+      "headerTemplate": "{{self.length}} emails",
+      "description": "[Optional] Email(s) of the author(s) or organization(s)",
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": true,
+      "options": {
+        "collapsed": true,
+        "remove_empty_properties": true
+      },
+      "items": {
+        "$ref": "#/definitions/emailObject"
+      }
+    },
+    "urls": {
+      "title": "URLs",
+      "propertyOrder": 900,
+      "headerTemplate": "{{self.length}} URLs",
+      "description": "[Optional] Reference (or multiple references) to the core/design implemnetation or to the author",
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": true,
+      "options": {
+        "collapsed": true,
+        "remove_empty_properties": true
+      },
+      "items": {
+        "$ref": "#/definitions/urlObject"
+      }
+    },
+    "yaynahs": {
+      "title": "Yays/Nahs",
+      "propertyOrder": 1000,
+      "headerTemplate": "{{self.length}} Yays/Nahs",
+      "description": "[Optional] Highlights short positives and negatives of the implementation",
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": true,
+      "options": {
+        "collapsed": true,
+        "remove_empty_properties": true
+      },
+      "items": {
+        "$ref": "#/definitions/yaynah"
+      }
+    },
+    "specifications": {
+      "title": "Specifications",
+      "description": "If describing multiple variants of a design/cores with different specifications, then this parent entry can contain the range of scores across the all the variants, or leave this empty and describe in the child entries",
+      "propertyOrder": 1300,
+      "headerTemplate": "{{self.length}} specifications",
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": true,
+      "options": {
+        "collapsed": true
+      },
+      "items": {
+        "$ref": "#/definitions/specificationObject"
+      }
+    },
+    "variants": {
+      "title": "Variants",
+      "description": "Single core/design can be configured/instanciated with different parameters like different size, performance, or different feature sets. If there are significant differences worth describing, then populate these fields.",
+      "propertyOrder": 1500,
+      "headerTemplate": "{{self.length}} variants",
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": true,
+      "options": {
+        "collapsed": true
+      },
+      "items": {
+        "$ref": "#/definitions/variantObject"
+      }
+    }
+  },
+  "required": [
+    "author",
+    "name",
+    "email",
+    "urls",
+    "yaynahs",
+    "specifications",
+    "variants"
+  ],
+  "options": {
+    "disable_collapse": true
+  }
+}

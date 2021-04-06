@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>RISC-V Implementation Editor</title>  
+    <link rel='stylesheet' href='css/bootstrap.min.css'>
+    <script src="js/jsoneditor.min.js"></script>
+   
+    <script>
+      JSONEditor.defaults.theme = 'bootstrap3';
+      JSONEditor.defaults.iconlib = 'bootstrap3';
+      JSONEditor.defaults.options['disable_array_delete_last_row'] = true;
+      JSONEditor.defaults.options['disable_array_delete_all_rows'] = false;
+      JSONEditor.defaults.options['disable_array_reorder'] = true;
+      // JSONEditor.defaults.options['disable_edit_json'] = true;
+      JSONEditor.defaults.options['ajax'] = true;
+      JSONEditor.defaults.options.hidden= false;
+      JSONEditor.defaults.options['remove_empty_properties'] = false;
+
+      // JSONEditor.defaults.options['disable_properties'] = true;
+      // JSONEditor.defaults.options['required_by_default'] = false;
+      // JSONEditor.defaults.options['display_required_only'] = false;
+
+      JSONEditor.defaults.options['no_additional_properties'] = true;
+      JSONEditor.defaults.options.show_errors='always';
+      JSONEditor.defaults.options.object_layout = 'normal';
+      JSONEditor.defaults.options.object_layout = 'enum_titles';
+      JSONEditor.plugins.epiceditor.basePath = 'epiceditor';
+    </script>
+    <style>
+      .container-full {
+        margin: 0 auto;
+        width: 98%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container container-full">
+      <div class='row'>
+        <div id='editor_holder' class='medium-12 columns'></div>
+      </div>
+    </div>
+    
+    <script>
+      var starting_value = { };
+
+      var schema = { };
+
+      var editor;
+
+
+      function reload() {
+        if(editor) editor.destroy();
+        editor = new JSONEditor(document.getElementById('editor_holder'),{
+          ajax: true,
+          schema: schema,
+          startval: starting_value
+        });
+      }
+
+
+      function loadJSON(path, success, error) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    if (success)
+                        success(JSON.parse(xhr.responseText));
+                } else {
+                    if (error)
+                        error(xhr);
+                }
+            }
+        };
+        xhr.open("GET", path, true);
+        xhr.send();
+      }
+
+
+      loadJSON("riscv-pocket-reference-json-schema.json",
+          function(data) { console.log(data); schema=data; reload(); },
+          function(xhr) { console.error(xhr); }
+      );
+
+
+      loadJSON("db.json",
+          function(data) { console.log(data); starting_value=data; reload(); },
+          function(xhr) { console.error(xhr); }
+      );
+
+               
+    </script>
+  </body>
+</html>

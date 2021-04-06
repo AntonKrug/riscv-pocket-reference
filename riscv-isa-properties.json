@@ -1,0 +1,133 @@
+{
+    "instructionRelations": {
+        "compressed" : {
+            "add": [
+                "c.add",
+                "c.mv"
+            ],
+            "addi":[
+                "c.li",
+                "c.addi",
+                "c.addi16sp",
+                "c.addi4spn"
+            ],
+            "addiw": "c.addiw",
+            "addw": "c.addw",
+            "and": "c.and",
+            "andi": "c.andi",
+            "beq": "c.beqz",
+            "bne": "c.bnez",
+            "ebreak": "c.ebreak",
+            "fld": [
+                "c.fldsp",
+                "c.fld"
+            ],
+            "flw":[
+                "c.flwsp",
+                "c.flw"
+            ],
+            "fsd": [
+                "c.fsdsp",
+                "c.fsd"
+            ],
+            "fsw":[
+                "c.fswsp",
+                "c.fsw"
+            ],
+            "jal":[
+                "c.j",
+                "c.jal"
+            ],
+            "jalr":[
+                "c.jr",
+                "c.jalr"
+            ],
+            "ld": [
+                "c.ldsp",
+                "c.ld"
+            ],
+            "lw":[
+                "c.lwsp",
+                "c.lw"
+            ],
+            "lui": "c.lui",
+            "or": "c.or",
+            "sd": [
+                "c.sdsp",
+                "c.sd"
+            ],
+            "sw":[
+                "c.swsp",
+                "c.sw"
+            ],
+            "slli":[
+                "c.slli"
+            ],
+            "srai": "c.srai",
+            "srli": "c.srli",
+            "sub": "c.sub",
+            "subw": "c.subw",
+            "xor": "c.xor"
+        },
+        "pseudoinstructions":{
+            "jr": "jar",
+            "call": [
+                "auipc",
+                "jalr"
+            ]
+
+        },
+        "sizeSign":{
+
+        },
+        "floatingPoint": {
+            
+        }
+
+    },
+    "modules":{
+        "c": [
+            "c.add",
+            "c.mv",
+            "c.li",
+            "c.addi",
+            "c.addi16sp",
+            "c.addi4spn",
+            "c.addiw",
+            "c.addw",
+            "c.and",
+            "c.andi",
+            "c.beqz",
+            "c.bnez",
+            "c.ebreak",
+            "c.fldsp",
+            "c.fld",
+            "c.flwsp",
+            "c.flw",
+            "c.fsdsp",
+            "c.fsd",
+            "c.fswsp",
+            "c.fsw",
+            "c.j",
+            "c.jal",
+            "c.jr",
+            "c.jalr",
+            "c.ldsp",
+            "c.ld",
+            "c.lwsp",
+            "c.lw",
+            "c.lui",
+            "c.or",
+            "c.sdsp",
+            "c.sd",
+            "c.swsp",
+            "c.sw",
+            "c.slli",
+            "c.srai",
+            "c.srli",
+            "c.sub",
+            "c.subw",
+            "c.xor"            
+        ]
+    }
+}
