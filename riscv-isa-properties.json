@@ -137,19 +137,63 @@
 
     },
     "types/formats": {
-        "R": [
+        "R": {
+            "meaning": "Register",
+            "format": "",
+            "instructions": [
 
-        ],
-        "I": [
+            ],
+            "relative": "CR"
+        },
+        "I": {
+            "meaning": "Immediate",
+            "format": "",
+            "instructions": [
 
-        ],
+            ],
+            "relative": [
+                "CI",
+                "CIW"
+            ]
+        },
+        "S": {
+            "meaning": "Store",
+            "format": "",
+            "instructions": [
+
+            ],
+            "relative": "CSS"
+        },
+        "B": {
+            "meaning": "Branch",
+            "format": "",
+            "instructions": [
+
+            ],
+            "relative": "CB"
+        },
+        "U":  {
+            "meaning": "Upper Immediate",
+            "format": "",
+            "instructions": [
+
+            ]
+        },
+        "J":  {
+            "meaning": "Jump",
+            "format": "",
+            "instructions": [
+
+            ],
+            "relative": "CJ"
+        },
         "CR": {
             "meaning": "Compressed Register",
             "format": "",
             "instructions": [
 
             ],
-            "relative": "r"
+            "relative": "R"
         },
         "CI": {
             "meaning": "Compressed Immediate",
@@ -157,7 +201,7 @@
             "instructions": [
 
             ],
-            "relative": "i"
+            "relative": "I"
         },
         "CSS": {
             "meaning": "Compressed Stack-relative Store",
@@ -165,7 +209,7 @@
             "instructions": [
 
             ],
-            "relative": "ss"
+            "relative": "S"
         },
         "CIW": {
             "meaning": "Compressed Wide Immediate",
@@ -173,7 +217,7 @@
             "instructions": [
 
             ],
-            "relative": "iw"
+            "relative": "I"
         },
         "CL": {
             "meaning": "Compressed Load",
@@ -181,7 +225,7 @@
             "instructions": [
 
             ],
-            "relative": "l"
+            "relative": "L"
         },
         "CS": {
             "meaning": "Compressed Store",
@@ -189,15 +233,14 @@
             "instructions": [
 
             ],
-            "relative": "s"
+            "relative": "S"
         },
         "CA": {
             "meaning": "Compressed Arithmetic",
             "format": "",
             "instructions": [
 
-            ],
-            "relative": "a"
+            ]
         },
         "CB": {
             "meaning": "Compressed Branch/Arithmetic",
@@ -205,7 +248,7 @@
             "instructions": [
 
             ],
-            "relative": "b"
+            "relative": "B"
         },
         "CJ": {
             "meaning": "Compressed Jump",
@@ -213,7 +256,7 @@
             "instructions": [
 
             ],
-            "relative": "j"
+            "relative": "J"
         }
     },
     "modules":{
