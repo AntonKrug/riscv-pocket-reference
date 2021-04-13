@@ -279,19 +279,76 @@
 
         ],
         "RV32IC": [
-
+            "c.add",
+            "c.addi",
+            "c.addi16sp",
+            "c.addi4spn",
+            "c.and",
+            "c.andi",
+            "c.beqz",
+            "c.bnez",
+            "c.ebreak",
+            "c.j",
+            "c.jal",
+            "c.jalr",
+            "c.jr",
+            "c.li",
+            "c.lui",
+            "c.lw",
+            "c.lwsp",
+            "c.mv",
+            "c.or",
+            "c.slli",
+            "c.srai",
+            "c.srli",
+            "c.sub",
+            "c.sw",
+            "c.swsp",
+            "c.xor"
         ],
         "RV64IC": [
-
+            "c.add",
+            "c.addi",
+            "c.addi16sp",
+            "c.addi4spn",
+            "c.addiw",
+            "c.and",
+            "c.addw",
+            "c.andi",
+            "c.beqz",
+            "c.bnez",
+            "c.ebreak",
+            "c.j",
+            "c.jalr",
+            "c.jr",
+            "c.ld",
+            "c.ldsp",
+            "c.li",
+            "c.lui",
+            "c.lw",
+            "c.lwsp",
+            "c.mv",
+            "c.or",
+            "c.sd",
+            "c.sdsp",
+            "c.slli",
+            "c.srai",
+            "c.srli",
+            "c.sub",
+            "c.subw",
+            "c.sw",
+            "c.swsp",
+            "c.xor"
         ],
         "RV32DC": [
-
+            "c.fld",
+            "c.fldsp",
+            "c.fsd",
+            "c.fsdsp"
         ],
         "RV64DC": [
-
         ],
         "RV32FC": [
-
         ],
         "RV32M": [
 
