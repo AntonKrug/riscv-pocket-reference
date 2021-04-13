@@ -136,7 +136,132 @@
         }
 
     },
+    "types/formats": {
+        "r": [
+
+        ],
+        "i": [
+
+        ],
+        "cr": {
+            "meaning": "Compressed Register",
+            "format": "",
+            "instructions": [
+
+            ],
+            "relative": "r"
+        },
+        "ci": {
+            "meaning": "Compressed Immediate",
+            "format": "",
+            "instructions": [
+
+            ],
+            "relative": "i"
+        },
+        "css": {
+            "meaning": "Compressed Stack-relative Store",
+            "format": "",
+            "instructions": [
+
+            ],
+            "relative": "ss"
+        },
+        "ciw": {
+            "meaning": "Compressed Wide Immediate",
+            "format": "",
+            "instructions": [
+
+            ],
+            "relative": "iw"
+        },
+        "cl": {
+            "meaning": "Compressed Load",
+            "format": "",
+            "instructions": [
+
+            ],
+            "relative": "l"
+        },
+        "cs": {
+            "meaning": "Compressed Store",
+            "format": "",
+            "instructions": [
+
+            ],
+            "relative": "s"
+        },
+        "ca": {
+            "meaning": "Compressed Arithmetic",
+            "format": "",
+            "instructions": [
+
+            ],
+            "relative": "a"
+        },
+        "cb": {
+            "meaning": "Compressed Branch/Arithmetic",
+            "format": "",
+            "instructions": [
+
+            ],
+            "relative": "b"
+        },
+        "cj": {
+            "meaning": "Compressed Jump",
+            "format": "",
+            "instructions": [
+
+            ],
+            "relative": "j"
+        }
+    },
     "modules":{
+        "RV64I": [
+
+        ],
+        "RV32I and RV64I priviledged": [
+
+        ],
+        "RV32I and RV64I": [
+
+        ],
+        "RV64A": [
+
+        ],
+        "RV32A and RV64A": [
+
+        ],
+        "RV32IC": [
+
+        ],
+        "RV64IC": [
+
+        ],
+        "RV32IC and RV64IC": [
+
+        ],
+        "RV32DC and RV64DC": [
+
+        ],
+        "RV32FC": [
+
+        ],
+        "RV64M": [
+
+        ],
+        "RV32M and RV64M": [
+
+        ],
+        "RV64F": [
+
+        ],
+        "RV32F and RV64F": [
+
+        ],
+        "RV64D": [
+
+        ],
         "c": [
             "c.add",
             "c.mv",
