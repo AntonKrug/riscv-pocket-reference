@@ -137,13 +137,13 @@
 
     },
     "types/formats": {
-        "r": [
+        "R": [
 
         ],
-        "i": [
+        "I": [
 
         ],
-        "cr": {
+        "CR": {
             "meaning": "Compressed Register",
             "format": "",
             "instructions": [
@@ -151,7 +151,7 @@
             ],
             "relative": "r"
         },
-        "ci": {
+        "CI": {
             "meaning": "Compressed Immediate",
             "format": "",
             "instructions": [
@@ -159,7 +159,7 @@
             ],
             "relative": "i"
         },
-        "css": {
+        "CSS": {
             "meaning": "Compressed Stack-relative Store",
             "format": "",
             "instructions": [
@@ -167,7 +167,7 @@
             ],
             "relative": "ss"
         },
-        "ciw": {
+        "CIW": {
             "meaning": "Compressed Wide Immediate",
             "format": "",
             "instructions": [
@@ -175,7 +175,7 @@
             ],
             "relative": "iw"
         },
-        "cl": {
+        "CL": {
             "meaning": "Compressed Load",
             "format": "",
             "instructions": [
@@ -183,7 +183,7 @@
             ],
             "relative": "l"
         },
-        "cs": {
+        "CS": {
             "meaning": "Compressed Store",
             "format": "",
             "instructions": [
@@ -191,7 +191,7 @@
             ],
             "relative": "s"
         },
-        "ca": {
+        "CA": {
             "meaning": "Compressed Arithmetic",
             "format": "",
             "instructions": [
@@ -199,7 +199,7 @@
             ],
             "relative": "a"
         },
-        "cb": {
+        "CB": {
             "meaning": "Compressed Branch/Arithmetic",
             "format": "",
             "instructions": [
@@ -207,7 +207,7 @@
             ],
             "relative": "b"
         },
-        "cj": {
+        "CJ": {
             "meaning": "Compressed Jump",
             "format": "",
             "instructions": [
