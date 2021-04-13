@@ -260,19 +260,22 @@
         }
     },
     "modules":{
+        "RV32I": [
+
+        ],
         "RV64I": [
 
         ],
-        "RV32I and RV64I priviledged": [
+        "RV32I priviledged": [
 
         ],
-        "RV32I and RV64I": [
+        "RV64I priviledged": [
+
+        ],
+        "RV32A": [
 
         ],
         "RV64A": [
-
-        ],
-        "RV32A and RV64A": [
 
         ],
         "RV32IC": [
@@ -281,25 +284,25 @@
         "RV64IC": [
 
         ],
-        "RV32IC and RV64IC": [
+        "RV32DC": [
 
         ],
-        "RV32DC and RV64DC": [
+        "RV64DC": [
 
         ],
         "RV32FC": [
 
         ],
+        "RV32M": [
+
+        ],
         "RV64M": [
 
         ],
-        "RV32M and RV64M": [
+        "RV32F": [
 
         ],
         "RV64F": [
-
-        ],
-        "RV32F and RV64F": [
 
         ],
         "RV64D": [
