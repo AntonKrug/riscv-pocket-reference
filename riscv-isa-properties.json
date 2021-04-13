@@ -70,12 +70,63 @@
             "xor": "c.xor"
         },
         "pseudoinstructions":{
-            "jr": "jar",
+            "bgez": "bge",
+            "bgt": "blt",
+            "bgtu": "bltu",
+            "bgtz": "blt",
+            "ble": "bge",
+            "bleu": "bgeu",
+            "blez": "bge",
+            "bltz": "blt",
+            "bnez": "bne",
             "call": [
                 "auipc",
                 "jalr"
-            ]
-
+            ],
+            "csrs": "csrrs",
+            "crsi": "csrrsi",
+            "csrw": "csrrw",
+            "csrwi": "csrrwi",
+            "fabs.d": "fsgnjx.d",
+            "fabs.s": "fsgnjx.s",
+            "fmv.d": "fsgnj.d",
+            "fmv.s": "fsgnj.s",
+            "fneg.d": "fsgnjn.s",
+            "frcsr": "csrrs",
+            "frflags": "csrrs",
+            "frrm": "csrrs",
+            "fscsr": "csrrw",
+            "fsflags": "csrrw",
+            "fsrm": "csrrw",
+            "j": "jal",
+            "jr": "jar",
+            "li": [
+                "lui",
+                "addi",
+                "slli"
+            ],
+            "lla": [
+                "auipc",
+                "addi"
+            ],
+            "mv": "addi",
+            "neg": "sub",
+            "negw": "subw",
+            "nop": "addi",
+            "not": "xori",
+            "rdcycle": "csrrs",
+            "rdcycleh": "csrrs",
+            "rdinstret": "csrrs",
+            "rdinstreth": "csrrs",
+            "rdtime": "csrrs",
+            "rdtimeh": "csrrs",
+            "ret": "jalr",
+            "seqz": "sltiu",
+            "sext.w": "addiw",
+            "sgtz": "slt",
+            "sltz": "slt",
+            "snez": "sltu",
+            "tail": "auipc"
         },
         "sizeSign":{
 
