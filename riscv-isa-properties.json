@@ -276,6 +276,33 @@
     
             ]
         },
+        "M": {
+            "RV32": [
+                "div",
+                "divu",
+                "mul",
+                "mulh",
+                "mulhsu",
+                "mulhu",
+                "rem",
+                "remu"    
+            ],
+            "RV64": [
+                "div",
+                "divu",
+                "divuw",
+                "divw",
+                "mul",
+                "mulh",
+                "mulhsu",
+                "mulhu",
+                "mulw",
+                "rem",
+                "remu",
+                "remuw",
+                "remw"    
+            ]
+        },
         "A": {
             "RV32": [
     
@@ -284,7 +311,45 @@
     
             ]
         },
-        "IC": {
+        "F": {
+            "RV32": [
+    
+            ],
+            "RV64": [
+    
+            ]
+        },
+        "D": {
+            "RV32": [
+    
+            ],
+            "RV64": [
+    
+            ]
+        },
+        "FC": {
+            "RV32": [
+                "c.flw",
+                "c.flwsp",
+                "c.fsw",
+                "c.fswsp"
+            ]
+        },
+        "DC" : {
+            "RV32": [
+                "c.fld",
+                "c.fldsp",
+                "c.fsd",
+                "c.fsdsp"    
+            ],
+            "RV64": [
+                "c.fld",
+                "c.fldsp",
+                "c.fsd",
+                "c.fsdsp"    
+            ]
+        },
+        "C": {
             "RV32": [
                 "c.add",
                 "c.addi",
@@ -348,72 +413,7 @@
                 "c.xor"    
             ]
         },
-        "DC" : {
-            "RV32": [
-                "c.fld",
-                "c.fldsp",
-                "c.fsd",
-                "c.fsdsp"    
-            ],
-            "RV64": [
-                "c.fld",
-                "c.fldsp",
-                "c.fsd",
-                "c.fsdsp"    
-            ]
-        },
-        "FC": {
-            "RV32": [
-                "c.flw",
-                "c.flwsp",
-                "c.fsw",
-                "c.fswsp"
-            ]
-        },
-        "M": {
-            "RV32": [
-                "div",
-                "divu",
-                "mul",
-                "mulh",
-                "mulhsu",
-                "mulhu",
-                "rem",
-                "remu"    
-            ],
-            "RV64": [
-                "div",
-                "divu",
-                "divuw",
-                "divw",
-                "mul",
-                "mulh",
-                "mulhsu",
-                "mulhu",
-                "mulw",
-                "rem",
-                "remu",
-                "remuw",
-                "remw"    
-            ]
-        },
-        "F": {
-            "RV32": [
-    
-            ],
-            "RV64": [
-    
-            ]
-        },
-        "D": {
-            "RV32": [
-    
-            ],
-            "RV64": [
-    
-            ]
-        },
-        "C": {
+        "Cold": {
             "RV32": [
                 "c.add",
                 "c.addi",
