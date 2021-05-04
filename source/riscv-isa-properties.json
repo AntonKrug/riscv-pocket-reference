@@ -136,10 +136,17 @@
         }
 
     },
-    "types/formats": {
+    "formats": {
         "R": {
             "meaning": "Register",
-            "format": "",
+            "format": {
+                "funct7": 7,
+                "rs2": 5,
+                "rs1": 5,
+                "funct3": 3,
+                "rd": 5,
+                "opcode": 7
+            },
             "instructions": [
 
             ],
@@ -147,7 +154,13 @@
         },
         "I": {
             "meaning": "Immediate",
-            "format": "",
+            "format": {
+                "imm[11:0]": 12,
+                "rs1": 5,
+                "funct3": 3,
+                "rd": 5,
+                "opcode": 7
+            },
             "instructions": [
 
             ],
@@ -158,7 +171,14 @@
         },
         "S": {
             "meaning": "Store",
-            "format": "",
+            "format": {
+                "imm[11:5]": 7,
+                "rs2": 5,
+                "rs1": 5,
+                "funct3": 3,
+                "imm[4:0]": 5,
+                "opcode": 7
+            },
             "instructions": [
 
             ],
@@ -166,7 +186,14 @@
         },
         "B": {
             "meaning": "Branch",
-            "format": "",
+            "format": {
+                "imm[12|10:5]": 7,
+                "rs2": 5,
+                "rs1": 5,
+                "funct3": 3,
+                "imm[4:1|11]": 5,
+                "opcode": 7
+            },
             "instructions": [
 
             ],
@@ -174,14 +201,22 @@
         },
         "U":  {
             "meaning": "Upper Immediate",
-            "format": "",
+            "format": {
+                "imm[31:12]": 20,
+                "rd": 5,
+                "opcode": 7
+            },
             "instructions": [
 
             ]
         },
         "J":  {
             "meaning": "Jump",
-            "format": "",
+            "format": {
+                "imm[20|10:1|11|19:12]": 20,
+                "rd": 5,
+                "opcode": 7
+            },
             "instructions": [
 
             ],
@@ -189,7 +224,12 @@
         },
         "CR": {
             "meaning": "Compressed Register",
-            "format": "",
+            "format": {
+                "funct4": 4,
+                "rd/rs1": 5,
+                "rs2": 5,
+                "opcode": 2
+            },
             "instructions": [
 
             ],
@@ -197,7 +237,13 @@
         },
         "CI": {
             "meaning": "Compressed Immediate",
-            "format": "",
+            "format": {
+                "funct3": 3,
+                "imm1": 1,
+                "rd/rs1": 5,
+                "imm5": 5,
+                "opcode": 2
+            },
             "instructions": [
 
             ],
@@ -205,7 +251,12 @@
         },
         "CSS": {
             "meaning": "Compressed Stack-relative Store",
-            "format": "",
+            "format": {
+                "funct3": 3,
+                "imm6": 6,
+                "rs2": 5,
+                "opcode": 2
+            },
             "instructions": [
 
             ],
@@ -213,7 +264,12 @@
         },
         "CIW": {
             "meaning": "Compressed Wide Immediate",
-            "format": "",
+            "format": {
+                "funct3": 3,
+                "imm8": 8,
+                "rd'": 3,
+                "opcode": 2
+            },
             "instructions": [
 
             ],
@@ -221,7 +277,14 @@
         },
         "CL": {
             "meaning": "Compressed Load",
-            "format": "",
+            "format": {
+                "funct3": 3,
+                "imm3": 3,
+                "rs1'": 3,
+                "imm2": 2,
+                "rd'": 3,
+                "opcode": 2
+            },
             "instructions": [
 
             ],
@@ -229,7 +292,14 @@
         },
         "CS": {
             "meaning": "Compressed Store",
-            "format": "",
+            "format": {
+                "funct3": 3,
+                "imm3": 3,
+                "rs1'": 3,
+                "imm2": 2,
+                "rs2'": 3,
+                "opcode": 2
+            },
             "instructions": [
 
             ],
@@ -237,14 +307,26 @@
         },
         "CA": {
             "meaning": "Compressed Arithmetic",
-            "format": "",
+            "format": {
+                "funct6": 6,
+                "rd'/rs1'": 3,
+                "funct2": 2,
+                "rs2'": 3,
+                "opcode": 2
+            },
             "instructions": [
 
             ]
         },
         "CB": {
             "meaning": "Compressed Branch/Arithmetic",
-            "format": "",
+            "format": {
+                "funct3": 3,
+                "offset3": 3,
+                "rs1'": 3,
+                "offset5": 5,
+                "opcode": 2
+            },
             "instructions": [
 
             ],
@@ -252,7 +334,11 @@
         },
         "CJ": {
             "meaning": "Compressed Jump",
-            "format": "",
+            "format": {
+                "funct3": 3,
+                "jump target": 11,
+                "opcode": 2
+            },
             "instructions": [
 
             ],
