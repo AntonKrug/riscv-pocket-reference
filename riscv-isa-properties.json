@@ -260,181 +260,207 @@
         }
     },
     "modules":{
-        "RV32I": [
+        "I": {
+            "RV32": [
+    
+            ],
+            "RV64": [
+    
+            ]
+        },
+        "I priviledged": {
+            "RV32": [
+    
+            ],
+            "RV64": [
+    
+            ]
+        },
+        "A": {
+            "RV32": [
+    
+            ],
+            "RV64": [
+    
+            ]
+        },
+        "IC": {
+            "RV32": [
+                "c.add",
+                "c.addi",
+                "c.addi16sp",
+                "c.addi4spn",
+                "c.and",
+                "c.andi",
+                "c.beqz",
+                "c.bnez",
+                "c.ebreak",
+                "c.j",
+                "c.jal",
+                "c.jalr",
+                "c.jr",
+                "c.li",
+                "c.lui",
+                "c.lw",
+                "c.lwsp",
+                "c.mv",
+                "c.or",
+                "c.slli",
+                "c.srai",
+                "c.srli",
+                "c.sub",
+                "c.sw",
+                "c.swsp",
+                "c.xor"
+            ],
+            "RV64": [
+                "c.add",
+                "c.addi",
+                "c.addi16sp",
+                "c.addi4spn",
+                "c.addiw",
+                "c.and",
+                "c.addw",
+                "c.andi",
+                "c.beqz",
+                "c.bnez",
+                "c.ebreak",
+                "c.j",
+                "c.jalr",
+                "c.jr",
+                "c.ld",
+                "c.ldsp",
+                "c.li",
+                "c.lui",
+                "c.lw",
+                "c.lwsp",
+                "c.mv",
+                "c.or",
+                "c.sd",
+                "c.sdsp",
+                "c.slli",
+                "c.srai",
+                "c.srli",
+                "c.sub",
+                "c.subw",
+                "c.sw",
+                "c.swsp",
+                "c.xor"    
+            ]
+        },
+        "DC" : {
+            "RV32": [
+                "c.fld",
+                "c.fldsp",
+                "c.fsd",
+                "c.fsdsp"    
+            ],
+            "RV64": [
+                "c.fld",
+                "c.fldsp",
+                "c.fsd",
+                "c.fsdsp"    
+            ]
+        },
+        "FC": {
+            "RV32": [
+                "c.flw",
+                "c.flwsp",
+                "c.fsw",
+                "c.fswsp"
+            ]
+        },
+        "M": {
+            "RV32": [
+                "div",
+                "divu",
+                "mul",
+                "mulh",
+                "mulhsu",
+                "mulhu",
+                "rem",
+                "remu"    
+            ],
+            "RV64": [
+                "div",
+                "divu",
+                "divuw",
+                "divw",
+                "mul",
+                "mulh",
+                "mulhsu",
+                "mulhu",
+                "mulw",
+                "rem",
+                "remu",
+                "remuw",
+                "remw"    
+            ]
+        },
+        "F": {
+            "RV32": [
+    
+            ],
+            "RV64": [
+    
+            ]
+        },
+        "D": {
+            "RV32": [
+    
+            ],
+            "RV64": [
+    
+            ]
+        },
+        "C": {
+            "RV32": [
+                "c.add",
+                "c.addi",
+                "c.addi16sp",
+                "c.addi4spn",
+                "c.addiw",
+                "c.and",
+                "c.addw",
+                "c.andi",
+                "c.beqz",
+                "c.bnez",
+                "c.ebreak",
+                "c.fld",
+                "c.fldsp",
+                "c.flw",
+                "c.flwsp",
+                "c.fsd",
+                "c.fsdsp",
+                "c.fsw",
+                "c.fswsp",
+                "c.j",
+                "c.jal",
+                "c.jalr",
+                "c.jr",
+                "c.ld",
+                "c.ldsp",
+                "c.li",
+                "c.lui",
+                "c.lw",
+                "c.lwsp",
+                "c.mv",
+                "c.or",
+                "c.sd",
+                "c.sdsp",
+                "c.slli",
+                "c.srai",
+                "c.srli",
+                "c.sub",
+                "c.subw",
+                "c.sw",
+                "c.swsp",
+                "c.xor"        
+            ],
+            "RV64": [
+    
+            ]
 
-        ],
-        "RV64I": [
-
-        ],
-        "RV32I priviledged": [
-
-        ],
-        "RV64I priviledged": [
-
-        ],
-        "RV32A": [
-
-        ],
-        "RV64A": [
-
-        ],
-        "RV32IC": [
-            "c.add",
-            "c.addi",
-            "c.addi16sp",
-            "c.addi4spn",
-            "c.and",
-            "c.andi",
-            "c.beqz",
-            "c.bnez",
-            "c.ebreak",
-            "c.j",
-            "c.jal",
-            "c.jalr",
-            "c.jr",
-            "c.li",
-            "c.lui",
-            "c.lw",
-            "c.lwsp",
-            "c.mv",
-            "c.or",
-            "c.slli",
-            "c.srai",
-            "c.srli",
-            "c.sub",
-            "c.sw",
-            "c.swsp",
-            "c.xor"
-        ],
-        "RV64IC": [
-            "c.add",
-            "c.addi",
-            "c.addi16sp",
-            "c.addi4spn",
-            "c.addiw",
-            "c.and",
-            "c.addw",
-            "c.andi",
-            "c.beqz",
-            "c.bnez",
-            "c.ebreak",
-            "c.j",
-            "c.jalr",
-            "c.jr",
-            "c.ld",
-            "c.ldsp",
-            "c.li",
-            "c.lui",
-            "c.lw",
-            "c.lwsp",
-            "c.mv",
-            "c.or",
-            "c.sd",
-            "c.sdsp",
-            "c.slli",
-            "c.srai",
-            "c.srli",
-            "c.sub",
-            "c.subw",
-            "c.sw",
-            "c.swsp",
-            "c.xor"
-        ],
-        "RV32DC": [
-            "c.fld",
-            "c.fldsp",
-            "c.fsd",
-            "c.fsdsp"
-        ],
-        "RV64DC": [
-            "c.fld",
-            "c.fldsp",
-            "c.fsd",
-            "c.fsdsp"
-        ],
-        "RV32FC": [
-            "c.flw",
-            "c.flwsp",
-            "c.fsw",
-            "c.fswsp"
-        ],
-        "RV32M": [
-            "div",
-            "divu",
-            "mul",
-            "mulh",
-            "mulhsu",
-            "mulhu",
-            "rem",
-            "remu"
-        ],
-        "RV64M": [
-            "div",
-            "divu",
-            "divuw",
-            "divw",
-            "mul",
-            "mulh",
-            "mulhsu",
-            "mulhu",
-            "mulw",
-            "rem",
-            "remu",
-            "remuw",
-            "remw"
-
-        ],
-        "RV32F": [
-
-        ],
-        "RV64F": [
-
-        ],
-        "RV64D": [
-
-        ],
-        "c": [
-            "c.add",
-            "c.addi",
-            "c.addi16sp",
-            "c.addi4spn",
-            "c.addiw",
-            "c.and",
-            "c.addw",
-            "c.andi",
-            "c.beqz",
-            "c.bnez",
-            "c.ebreak",
-            "c.fld",
-            "c.fldsp",
-            "c.flw",
-            "c.flwsp",
-            "c.fsd",
-            "c.fsdsp",
-            "c.fsw",
-            "c.fswsp",
-            "c.j",
-            "c.jal",
-            "c.jalr",
-            "c.jr",
-            "c.ld",
-            "c.ldsp",
-            "c.li",
-            "c.lui",
-            "c.lw",
-            "c.lwsp",
-            "c.mv",
-            "c.or",
-            "c.sd",
-            "c.sdsp",
-            "c.slli",
-            "c.srai",
-            "c.srli",
-            "c.sub",
-            "c.subw",
-            "c.sw",
-            "c.swsp",
-            "c.xor"            
-        ]
+        }
     }
 }
