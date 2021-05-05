@@ -2,3 +2,4 @@ build/
 *.sw*
 .vscode
 *.pyc
+source/*_generated
